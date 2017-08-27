@@ -54,6 +54,17 @@ elif which vim >/dev/null 2>&1; then
     alias vi='vim'
 fi
 
+if which rg >/dev/null 2>&1; then
+    alias ag='rg'
+    alias ack='ag'
+elif which ag >/dev/null 2>&1; then
+    alias rg='ag'
+    alias ack='ag'
+elif which ack >/dev/null 2>&1; then
+    alias rg='ack'
+    alias ag='ack'
+fi
+
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type _git &> /dev/null; then
 	complete -o default -o nospace -F _git g;
