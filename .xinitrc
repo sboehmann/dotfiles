@@ -1,0 +1,2 @@
+xmodmap $HOME/.Xmodmap 
+startkde
