@@ -1,0 +1,39 @@
+[core]
+    excludesfile = ~/.gitignore
+
+[push]
+    default = tracking
+
+[url "git://anongit.kde.org/"]
+    insteadOf = kde:
+
+[url "ssh://git@git.kde.org/"]
+    pushInsteadOf = kde:
+
+[url "git@git.kde.org:"]
+    pushInsteadOf = kde:
+
+[core]
+    pager = less -F -X
+    autocrlf = input
+    whitespace = trailing-space,space-before-tab
+
+[color]
+    ui = auto
+
+[format]
+    pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
+
+[rerere]
+    enabled = true
+
+[branch]
+    autosetuprebase = always
+    autosetupmerge = true
+
+[diff]
+    renames = copies
+    mnemonicprefix = true
+
+[merge]
+    stat = true

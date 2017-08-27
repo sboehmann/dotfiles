@@ -1,0 +1,31 @@
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+if which kde-open5 > /dev/null 2>&1; then
+    alias o="kde-open5"
+    alias open="kde-open5"
+    alias kde-open="kde-open5"
+fi
+
+if which mpv > /dev/null 2>&1; then
+    alias mplayer="mpv"
+fi
+
+if which expand > /dev/null 2>&1; then
+    alias tab2spaces='expand --tabs=4'
+fi
+
+if which exa >/dev/null 2>&1; then
+    alias ls='exa'
+else
+    alias ls='ls --color=auto'
+fi
+
+if which nvim >/dev/null 2>&1; then
+    alias vim='nvim'
+fi
+
+if which vim >/dev/null 2>&1; then
+    alias vi='vim'
+fi

@@ -1,0 +1,30 @@
+root = true
+
+[*]
+charset = utf-8
+indent_size = 4
+tab_width = 4
+indent_style = space
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{diff,md}]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
+
+[README.md]
+max_line_length = 80
+trim_trailing_whitespace = false
+
+[CMakeLists.txt]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+[*.{sh,bash,cmake}]
+indent_style = space
+indent_size = 2
+max_line_length = 80
