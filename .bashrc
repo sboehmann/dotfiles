@@ -1,14 +1,32 @@
-# wayland
-export XDG_RUNTIME_DIR=/tmp/.runtime-${USER}
-mkdir -p "${XDG_RUNTIME_DIR}"
-chmod 0700 "${XDG_RUNTIME_DIR}"
+#!/bin/bash
 
-export XDG_DESKTOP_DIR="$HOME/Desktop"
+files=( "path" "aliases" "prompt" "exports" "functions" )
+for file in "${files[@]}"; do
+	[ -r ".shell-$file" ] && [ -f ".shell-$file" ] && source ".shell-$file";
+done
 
-export GOROOT=/usr/lib/go
-export GOPATH=${HOME}/.go:${HOME}/repos/go
-export PATH=$PATH:${HOME}/.local/bin:${HOME}/.go/bin/:/usr/pkg/tool/linux_amd64:${HOME}/.cargo/bin
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
-export EIX_LIMIT_COMPACT=0
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob;
 
-test -r ~/.shell-aliases && source ~/.shell-aliases
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend;
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell;
+
+# Enable some Bash 4 features when possible:
+# * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
+# * Recursive globbing, e.g. `echo **/*.txt`
+for option in autocd globstar; do
+	shopt -s "$option" 2> /dev/null;
+done
+
+# Add tab completion for many Bash commands
+if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+	source "$(brew --prefix)/share/bash-completion/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+	source /etc/bash_completion;
+fi
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;

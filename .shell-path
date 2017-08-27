@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export GOROOT=/usr/lib/go
+export GOPATH=${HOME}/.go:${HOME}/repos/go
+export PATH=$PATH:${HOME}/.local/bin:${HOME}/.go/bin/:/usr/pkg/tool/linux_amd64:${HOME}/.cargo/bin
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
+

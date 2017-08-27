@@ -1,31 +1,60 @@
+#!/bin/sh
+
+# Easier navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias dl="cd ~/Downloads"
+alias r="cd ~/repos"
+
+# Shortcuts
+alias g="git"
+alias v="vim"
+
+# Always enable colored `grep` output
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# o|open
 if which kde-open5 > /dev/null 2>&1; then
     alias o="kde-open5"
     alias open="kde-open5"
     alias kde-open="kde-open5"
 fi
 
+# Use mpv instead of mplayer
 if which mpv > /dev/null 2>&1; then
     alias mplayer="mpv"
 fi
 
+# Create tab2spaces command
 if which expand > /dev/null 2>&1; then
     alias tab2spaces='expand --tabs=4'
 fi
 
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then
+	colorflag="--color"
+else
+	colorflag="-G"
+fi
+alias ls="command ls ${colorflag}"
+
+# When avaiable, prefer exa over plain ls
 if which exa >/dev/null 2>&1; then
     alias ls='exa'
-else
-    alias ls='ls --color=auto'
 fi
 
+# alias vim
 if which nvim >/dev/null 2>&1; then
     alias vim='nvim'
+elif which vim >/dev/null 2>&1; then
+    alias vi='vim'
 fi
 
-if which vim >/dev/null 2>&1; then
-    alias vi='vim'
+# Enable tab completion for `g` by marking it as an alias for `git`
+if type _git &> /dev/null; then
+	complete -o default -o nospace -F _git g;
 fi
