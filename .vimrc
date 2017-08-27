@@ -28,6 +28,19 @@ set tabstop=4
 " Always show the status line
 set laststatus=2
 
+" unnecessary with plugin lightline
+set noshowmode
+
+" show line numbers
+set number
+set numberwidth=3
+
+" highlight current line
+set cursorline
+
+" set update time for gitgutter
+set updatetime=500
+
 try
     colorscheme landscape
 catch
