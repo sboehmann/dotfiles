@@ -64,3 +64,8 @@ elif which ack >/dev/null 2>&1; then
     alias rg='ack'
     alias ag='ack'
 fi
+
+if which thefuck >/dev/null 2>&1; then
+    eval $(thefuck --alias)
+fi
+

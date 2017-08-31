@@ -1,7 +1,13 @@
 #!/bin/sh
 
-export GOROOT=/usr/lib/go
-export GOPATH=${HOME}/.go:${HOME}/repos/go
-export PATH=$PATH:${HOME}/.local/bin:${HOME}/.go/bin/:/usr/pkg/tool/linux_amd64:${HOME}/.cargo/bin
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
+system_type=$(uname -s)
 
+export GOPATH=$HOME/.go:$HOME/repos/go
+
+if [ "$system_type" = "Darwin" ]; then
+    export PATH=$HOME/bin:$HOME/.go/bin:/usr/local/bin:/usr/local/sbin:$PATH
+elif [ "$system_type" = "Linux" ]; then
+    export GOROOT=/usr/lib/go
+    export PATH=$PATH:${HOME}/.local/bin:${HOME}/.go/bin/:/usr/pkg/tool/linux_amd64:${HOME}/.cargo/bin
+    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
+fi
