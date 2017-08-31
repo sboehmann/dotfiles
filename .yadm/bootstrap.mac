@@ -61,14 +61,18 @@ brew install dark-mode
 brew install subversion
 brew install git
 brew install git-lfs
+brew install tig
+brew install exa
 sudo git lfs install --system
 
 brew install imagemagick --with-webp
 brew install p7zip
 brew install xz
+brew install tldr
 brew install ssh-copy-id
 brew install ag
 brew install mc
+brew install thefuck
 brew install brew-cask-completion
 brew install htop
 brew install pass
