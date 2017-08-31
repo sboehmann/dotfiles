@@ -1,0 +1,104 @@
+#!/bin/sh
+
+# install homebrew if it's missing
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Installing homebrew"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+if ! command -v brew > /dev/null 2>&1; then
+  echo "brew not found!"
+  exit 1
+fi
+
+if [ -f "$HOME/.Brewfile" ]; then
+  echo "Updating homebrew bundle"
+  brew bundle --global
+fi
+
+brew --version >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew update
+brew upgrade
+
+brew install coreutils
+brew install moreutils
+brew install findutils
+brew install gnu-sed --with-default-names
+
+brew install bash
+brew tap homebrew/versions
+brew install bash-completion2
+
+# Switch to bash as default shell
+if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
+  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
+  chsh -s /usr/local/bin/bash;
+fi;
+
+brew install zsh
+brew install zsh-completions
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
+# Switch to zsh as default shell
+if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
+  echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells;
+  chsh -s /usr/local/bin/zsh;
+fi;
+
+
+# Install more recent versions of some macOS tools.
+brew install wget
+brew install vim --with-override-system-vi
+brew install homebrew/dupes/grep
+brew install homebrew/dupes/openssh
+brew install homebrew/dupes/screen
+
+# Install other useful binaries.
+brew install yadm
+brew install tmux
+brew install dark-mode
+brew install subversion
+brew install git
+brew install git-lfs
+sudo git lfs install --system
+
+brew install imagemagick --with-webp
+brew install p7zip
+brew install xz
+brew install ssh-copy-id
+brew install ag
+brew install mc
+brew install brew-cask-completion
+brew install htop
+brew install pass
+brew install md5sha1sum
+
+brew install cmake
+brew install llvm
+brew install clang-format
+brew install node
+brew install go
+brew install lua
+
+npm install -g grunt-cli
+npm install -g bower
+
+brew tap caskroom/fonts
+brew cask install font-fontawesome
+brew cask install font-source-code-pro
+
+brew cask install google-chrome
+brew cask install iterm2
+brew cask install atom
+brew cask install visual-studio-code
+brew cask install alfred
+brew cask install cheatsheet
+brew cask install flux
+brew cask install vlc
+brew cask install amazon-music
+brew cask install amazon-drive
+brew cask install java
+
+brew install scala
+brew install sdb
