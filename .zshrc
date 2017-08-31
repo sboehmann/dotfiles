@@ -1,4 +1,4 @@
-source .antigen/antigen.zsh
+source $HOME/.antigen/antigen.zsh
 
 #ZSH_THEME="spaceship"
 #HYPHEN_INSENSITIVE="true"
