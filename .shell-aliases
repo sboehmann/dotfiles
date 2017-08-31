@@ -17,6 +17,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias tldr='tldr --theme ocean'
+
 # o|open
 if which kde-open5 > /dev/null 2>&1; then
     alias o="kde-open5"

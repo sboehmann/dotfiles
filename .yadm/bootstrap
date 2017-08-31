@@ -2,8 +2,11 @@
 
 system_type=$(uname -s)
 
+echo "System is: $system_type"
+
 if [ "$system_type" = "Darwin" ]; then
     ~/.yadm/bootstrap.mac
 fi
 
+git config --global --get include.path > /dev/null || git config --global --add include.path .gitconfig_global
 hash -r
