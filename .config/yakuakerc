@@ -2,7 +2,10 @@
 Skin=legacy
 
 [Desktop Entry]
-DefaultProfile=Profile 3.profile
+DefaultProfile=Profile 1.profile
+
+[Dialogs]
+FirstRun=false
 
 [DownloadDialog Settings]
 Height 1080=522

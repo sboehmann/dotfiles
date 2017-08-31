@@ -17,6 +17,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias tldr='tldr --theme ocean'
+
 # o|open
 if which kde-open5 > /dev/null 2>&1; then
     alias o="kde-open5"
@@ -65,7 +67,3 @@ elif which ack >/dev/null 2>&1; then
     alias ag='ack'
 fi
 
-# Enable tab completion for `g` by marking it as an alias for `git`
-if type _git &> /dev/null; then
-	complete -o default -o nospace -F _git g;
-fi
