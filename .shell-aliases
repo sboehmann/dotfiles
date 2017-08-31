@@ -38,9 +38,9 @@ fi
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then
-	colorflag="--color"
+    colorflag="--color"
 else
-	colorflag="-G"
+    colorflag="-G"
 fi
 alias ls="command ls ${colorflag}"
 
@@ -66,4 +66,3 @@ elif which ack >/dev/null 2>&1; then
     alias rg='ack'
     alias ag='ack'
 fi
-
