@@ -1,8 +1,14 @@
 [core]
+	autocrlf = true
+	pager = less -FR
+    whitespace = trailing-space,space-before-tab
     excludesfile = ~/.gitignore
 
 [push]
-    default = tracking
+    default = simple
+
+[pull]
+	rebase = true
 
 [url "git://anongit.kde.org/"]
     insteadOf = kde:
@@ -13,23 +19,20 @@
 [url "git@git.kde.org:"]
     pushInsteadOf = kde:
 
-[core]
-    pager = less -F -X
-    autocrlf = input
-    whitespace = trailing-space,space-before-tab
-
 [color]
-    ui = auto
+    ui = true
 
-[format]
-    pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
+[log]
+	follow = true
+
+#[format]
+#    pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
 
 [rerere]
     enabled = true
 
 [branch]
     autosetuprebase = always
-    autosetupmerge = true
 
 [diff]
     renames = copies
