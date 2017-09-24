@@ -19,6 +19,9 @@ alias egrep='egrep --color=auto'
 
 alias tldr='tldr --theme ocean'
 
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
+
 # o|open
 if which kde-open5 > /dev/null 2>&1; then
     alias o="kde-open5"
@@ -71,3 +74,17 @@ if which thefuck >/dev/null 2>&1; then
     eval $(thefuck --alias)
 fi
 
+# zsh
+if which is-at-least >/dev/null 2>&1; then
+  _editor_fts=(cpp cxx cc c hh h inl asc txt TXT tex)
+  for ft in $_editor_fts; do alias -s $ft=$EDITOR; done
+
+  if [[ -n "$BROWSER" ]]; then
+    _browser_fts=(htm html de org net com pdf)
+    for ft in $_browser_fts; do alias -s $ft=$BROWSER; done
+  fi
+
+  _media_fts=(ape avi flv m4a mkv mov mp3 mpeg mpg ogg ogm rm wav webm)
+  for ft in $_media_fts; do alias -s $ft=mpv; done
+
+fi
