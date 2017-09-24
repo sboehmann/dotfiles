@@ -137,3 +137,8 @@ set showcmd
 
 " cursor - don't jumb
 set nostartofline
+
+" command-t settings
+let g:CommandTMaxFiles=500000
+let g:CommandTSuppressMaxFilesWarning=1
+

@@ -1,8 +1,25 @@
 [core]
+    autocrlf = input
+    pager = less -FR
+    whitespace = trailing-space,space-before-tab
     excludesfile = ~/.gitignore
 
+[alias]
+    br = branch
+    ci = commit -v
+    co = checkout
+    st = status
+    prune = remote prune origin
+    unmerged = branch --no-merged
+    unmerged-remote = branch --no-merged --remote
+    praise = blame
+    lg = log --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
 [push]
-    default = tracking
+    default = simple
+
+[pull]
+    rebase = true
 
 [url "git://anongit.kde.org/"]
     insteadOf = kde:
@@ -13,23 +30,26 @@
 [url "git@git.kde.org:"]
     pushInsteadOf = kde:
 
-[core]
-    pager = less -F -X
-    autocrlf = input
-    whitespace = trailing-space,space-before-tab
-
 [color]
-    ui = auto
+    branch = auto
+    diff = auto
+    grep = auto
+    interactive = auto
+    showbranch = auto
+    status = auto
+    ui = true
 
-[format]
-    pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
+[log]
+    follow = true
+
+#[format]
+#    pretty = %Cred%h%Creset %aN -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
 
 [rerere]
     enabled = true
 
 [branch]
     autosetuprebase = always
-    autosetupmerge = true
 
 [diff]
     renames = copies
