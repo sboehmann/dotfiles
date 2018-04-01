@@ -1,5 +1,17 @@
 #!/bin/sh
 
+#############################
+## configure MacOS
+#############################
+
+# full path in finder title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+
+#############################
+## brew
+############################
+
 # install homebrew if it's missing
 if ! command -v brew >/dev/null 2>&1; then
   echo "Installing homebrew"
@@ -15,8 +27,6 @@ if [ -f "$HOME/.Brewfile" ]; then
   echo "Updating homebrew bundle"
   brew bundle --global
 fi
-
-brew --version >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew update
 brew upgrade
@@ -71,6 +81,7 @@ brew install xz
 brew install tldr
 brew install ssh-copy-id
 brew install ag
+brew install ripgrep
 brew install mc
 brew install thefuck
 brew install brew-cask-completion
@@ -78,6 +89,7 @@ brew install htop
 brew install pass
 brew install md5sha1sum
 brew install httpie
+brew install m-cli
 
 brew install cmake
 brew install llvm
@@ -85,6 +97,7 @@ brew install clang-format
 brew install node
 brew install go
 brew install lua
+brew install rust
 
 npm install -g grunt-cli
 npm install -g bower
@@ -94,17 +107,20 @@ brew cask install font-fira-code
 brew cask install font-fontawesome
 brew cask install font-source-code-pro
 
+brew cask install karabiner-elements
 brew cask install google-chrome
 brew cask install iterm2
 brew cask install atom
 brew cask install visual-studio-code
 brew cask install alfred
 brew cask install cheatsheet
-brew cask install flux
 brew cask install vlc
 brew cask install amazon-music
 brew cask install amazon-drive
 brew cask install java
-
-brew install scala
-brew install sdb
+brew cask install qlcolorcode
+brew cask install qlstephen
+brew cask install qlmarkdown
+brew cask install quicklook-json
+brew cask install qlimagesize
+brew cask install quicklook-csv
