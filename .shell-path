@@ -7,7 +7,7 @@ export GOPATH=$HOME/.go:$HOME/repos/go
 if [ "$system_type" = "Darwin" ]; then
     export PATH=$HOME/bin::/usr/local/bin:/usr/local/sbin:$PATH
     export PATH=$HOME/.go/bin:$PATH
-    qt_version=$(find $HOME/Qt -iname "*.*.*" -maxdepth 1 | sort --version-sort | tail -n1)
+    qt_version=$(find $HOME/Qt -iname "5.*.*" -maxdepth 1 | sort --version-sort | tail -n1)
     if test -n "$qt_version"; then
         export PATH="$qt_version/clang_64/bin":$PATH
     fi
