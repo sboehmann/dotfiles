@@ -70,6 +70,10 @@ elif which ack >/dev/null 2>&1; then
     alias ag='ack'
 fi
 
+if which mosh >/dev/null 2>&1; then
+    alias ssh='mosh'
+fi
+
 if which thefuck >/dev/null 2>&1; then
     eval $(thefuck --alias)
 fi
@@ -86,5 +90,4 @@ if which is-at-least >/dev/null 2>&1; then
 
   _media_fts=(ape avi flv m4a mkv mov mp3 mpeg mpg ogg ogm rm wav webm)
   for ft in $_media_fts; do alias -s $ft=mpv; done
-
 fi
