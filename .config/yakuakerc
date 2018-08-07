@@ -38,10 +38,9 @@ split-left-right=Ctrl+(
 split-top-bottom=Ctrl+)
 toggle-session-monitor-activity=Ctrl+Shift+A
 toggle-session-monitor-silence=Ctrl+Shift+I
-view-full-screen=Ctrl+Shift+F11
+view-full-screen=Ctrl+Shift+F11; F11
 
 [Window]
 Position=100
-Screen=1
 ShowTabBar=false
 Width=60
