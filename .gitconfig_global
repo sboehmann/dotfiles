@@ -1,6 +1,6 @@
 [core]
     autocrlf = input
-    pager = less -FR
+#    pager = less -FR
     whitespace = trailing-space,space-before-tab
     excludesfile = ~/.gitignore
 
