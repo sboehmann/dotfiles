@@ -37,5 +37,5 @@ if [ -x "$(command -v scutil)" ]; then
   /HTTPPort/ { port = $3; } \
   END { if (enabled == "1") { print "http://" server ":" port; } }'`
   export https_proxy="${http_proxy}"
-  export no_proxy="localhost,.lokal"
+  export no_proxy="localhost,.lokal,.lan,10.5.0.0/8,10.0.5.83:9900"
 fi
