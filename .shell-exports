@@ -38,7 +38,7 @@ if [ -x "$(command -v scutil)" ]; then
   /HTTPPort/ { port = $3; } \
   END { if (enabled == "1") { print "http://" server ":" port; } }'`
   export https_proxy="${http_proxy}"
-  export no_proxy="localhost,.lokal,.lan"
+  export no_proxy="127.0.0.1,localhost,.lokal,.lan"
 fi
 
 # Enable parallel build jobs by default
