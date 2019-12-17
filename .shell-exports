@@ -30,6 +30,7 @@ export LESS_TERMCAP_md="${yellow}"
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X'
 
+# Set proxy on macOS based on system settings
 if [ -x "$(command -v scutil)" ]; then
   export http_proxy=`scutil --proxy | awk '\
   /HTTPEnable/ { enabled = $3; } \
@@ -37,5 +38,21 @@ if [ -x "$(command -v scutil)" ]; then
   /HTTPPort/ { port = $3; } \
   END { if (enabled == "1") { print "http://" server ":" port; } }'`
   export https_proxy="${http_proxy}"
-  export no_proxy="localhost,.lokal,.lan,10.5.0.0/8,10.0.5.83:9900"
+  export no_proxy="localhost,.lokal,.lan"
+fi
+
+# Enable parallel build jobs by default
+if [ -x "$(command -v nproc)" ]; then
+  export CMAKE_BUILD_PARALLEL_LEVEL="$(nproc)"
+elif [ "$(uname -s)" = "Darwin" ]; then
+  export CMAKE_BUILD_PARALLEL_LEVEL="$(sysctl hw.ncpu | awk '{print $2}')"
+elif [ "$(uname -s)" = "Linux" ]; then
+  export CMAKE_BUILD_PARALLEL_LEVEL="$(grep -c ^processor /proc/cpuinfo)"
+fi
+
+# if CMAKE_BUILD_PARALLEL_LEVEL exists, is a number and greater than 1
+if [ -n "$CMAKE_BUILD_PARALLEL_LEVEL" ] && [ "$CMAKE_BUILD_PARALLEL_LEVEL" -gt 1 ] 2>/dev/null && ; then
+  export MAKEFLAGS="-j ${CMAKE_BUILD_PARALLEL_LEVEL}"
+else
+  unset CMAKE_BUILD_PARALLEL_LEVEL
 fi

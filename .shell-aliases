@@ -34,6 +34,11 @@ if which mpv > /dev/null 2>&1; then
     alias mplayer="mpv"
 fi
 
+# Use colorsvn if available
+if which colorsvn > /dev/null 2>&1; then
+    alias svn="colorsvn"
+fi
+
 # Create tab2spaces command
 if which expand > /dev/null 2>&1; then
     alias tab2spaces='expand --tabs=4'
