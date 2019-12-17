@@ -11,7 +11,7 @@ if [ -d $HOME/repos/mevislab ] ; then
 fi
 
 if [ "$system_type" = "Darwin" ]; then
-    export PATH=$HOME/bin::/usr/local/bin:/usr/local/sbin:$PATH
+    export PATH=$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/opt/bin:$PATH
     export PATH=$HOME/.go/bin:$PATH
     qt_version=$(find $HOME/Qt -iname "5.*.*" -maxdepth 1 | sort --version-sort | tail -n1)
     if test -n "$qt_version"; then
