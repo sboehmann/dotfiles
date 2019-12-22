@@ -51,7 +51,7 @@ elif [ "$(uname -s)" = "Linux" ]; then
 fi
 
 # if CMAKE_BUILD_PARALLEL_LEVEL exists, is a number and greater than 1
-if [ -n "$CMAKE_BUILD_PARALLEL_LEVEL" ] && [ "$CMAKE_BUILD_PARALLEL_LEVEL" -gt 1 ] 2>/dev/null && ; then
+if [ -n "$CMAKE_BUILD_PARALLEL_LEVEL" ] && [ "$CMAKE_BUILD_PARALLEL_LEVEL" -gt 1 ] 2>/dev/null; then
   export MAKEFLAGS="-j ${CMAKE_BUILD_PARALLEL_LEVEL}"
 else
   unset CMAKE_BUILD_PARALLEL_LEVEL
