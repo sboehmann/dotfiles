@@ -52,8 +52,10 @@
     autosetuprebase = always
 
 [diff]
+    renameLimit = 999999
     renames = copies
     mnemonicprefix = true
 
 [merge]
+    renameLimit = 999999
     stat = true

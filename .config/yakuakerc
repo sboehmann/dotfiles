@@ -1,5 +1,5 @@
 [Animation]
-Frames=12
+Frames=10
 
 [Desktop Entry]
 DefaultProfile=Profile 1.profile
@@ -14,7 +14,7 @@ Favorites=
 new-session=Ctrl+Shift+T; Shift+Up
 
 [Window]
+Height=70
 Position=100
-Screen=1
 ShowTabBar=false
-Width=70
+Width=80
