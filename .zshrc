@@ -1,9 +1,9 @@
+source $HOME/.antigen/antigen.zsh
+
 files=( "path" "aliases" "prompt" "exports" "functions" )
 for file in "${files[@]}"; do
     [ -r "$HOME/.shell-$file" ] && [ -f "$HOME/.shell-$file" ] && source "$HOME/.shell-$file";
 done
-
-source $HOME/.antigen/antigen.zsh
 
 #ZSH_THEME="spaceship"
 #HYPHEN_INSENSITIVE="true"
