@@ -2,6 +2,8 @@
 
 export EIX_LIMIT_COMPACT=0
 
+export CONAN_V2_MODE=1
+
 # Make vim the default editor.
 export EDITOR='vim'
 
