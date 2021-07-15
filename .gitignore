@@ -156,7 +156,6 @@ CTestTestfile.cmake
 # Kernel dev stuff
 ##################################################
 
-*.mod*
 *.cmd
 .tmp_versions/
 modules.order

@@ -4,12 +4,6 @@ system_type=$(uname -s)
 
 export GOPATH=$HOME/.go:$HOME/repos/go
 
-if [ -d $HOME/repos/mevislab ] ; then
-    export MLAB_ROOT=$HOME/repos/mevislab
-    export MLAB_COMPILER=gcc-64
-    export LSAN_OPTIONS=suppressions="$MLAB_ROOT"/MeVis/BuildSystem/BuildTools/linux/LeakSanitizerSuppressions.supp
-fi
-
 if [ "$system_type" = "Darwin" ]; then
     export PATH=$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/opt/bin:$PATH
     export PATH=$HOME/.go/bin:$PATH
@@ -19,6 +13,6 @@ if [ "$system_type" = "Darwin" ]; then
     fi
 elif [ "$system_type" = "Linux" ]; then
     export GOROOT=/usr/lib/go
-    export PATH=$PATH:${HOME}/.local/bin:${HOME}/.go/bin/:/usr/pkg/tool/linux_amd64:${HOME}/.cargo/bin
+    export PATH=$PATH:${HOME}/.local/bin:${HOME}/.go/bin/:/usr/pkg/tool/linux_amd64:${HOME}/.cargo/bin:${HOME}/.npm_global/bin
     export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 fi

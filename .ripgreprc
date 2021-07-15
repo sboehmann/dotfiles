@@ -1,0 +1,3 @@
+--type-add=mli:*.mli
+--type-add=mlinstall:*.mlinstall
+--type-add=mlab:*.mlab
